@@ -1,13 +1,150 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dia dos Namorados</title>
     <link rel="stylesheet" href="style.css">
-    <title><Data>💘💖</Data></title>
 </head>
 <body>
-    
+
+    <nav class="menu">
+        <a onclick="mudarPagina('home-section')">Inicio</a>
+        <a onclick="mudarPagina('homenagem-section')">Homenagem</a>
+        <a onclick="mudarPagina('quiz-section')">Quiz</a>
+        <a onclick="mudarPagina('contato-section')">Contato</a>
+    </nav>
+
+    <div id="home-section" class="secao ativa-flex">
+        <h1 class="texto-gigante">Feliz Dia dos Namorados! ❤️</h1>
+    </div>
+
+<div id="quiz-section" class="secao">
+        <h1 class="titulo-homenagem">Teste de Compatibilidade 💘</h1>
+        <p>Será que fomos feitos um para o outro? Responda e descubra!</p>
+
+        <div class="caixa-motivos quiz-box">
+            
+            <div id="quiz-pergunta-area">
+                <h3 id="pergunta-texto" style="text-align: center; margin-bottom: 20px;">Carregando...</h3>
+                <div id="opcoes-container" class="opcoes-grid">
+                    </div>
+            </div>
+
+            <div id="quiz-loading-area" style="display: none; text-align: center;">
+                <h3 style="color: #ff4d6d; margin-bottom: 15px;">Analisando nossa conexão... ⏳</h3>
+                <div class="barra-fundo">
+                    <div class="barra-progresso" id="barra-progresso"></div>
+                </div>
+                <h2 id="porcentagem-texto" style="margin-top: 15px; font-size: 2.5em;">0%</h2>
+            </div>
+
+            <div id="quiz-resultado-area" style="display: none; text-align: center;">
+                <h1 class="texto-gigante" style="font-size: 5em; margin-bottom: 0;">100%</h1>
+                <h2 style="margin-top: 0; font-size: 2.5em;">Almas Gêmeas! ✨</h2>
+                <p style="text-align: center; font-size: 1.2em; margin-top: 20px;">
+                    Feliz Dia dos Namorados, meu amor! Não importa o que você respondeu, a nossa compatibilidade sempre será infinita. Você é o amor da minha vida! ❤️
+                </p>
+                <button class="botao-musica" onclick="reiniciarQuiz()" style="font-size: 1em; padding: 10px 25px;">Refazer Teste</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="homenagem-section" class="secao">
+        <h1 class="titulo-homenagem">Para o meu amor...</h1>
+        <p>Essa página é bem simples, mas fiz com muito carinho para você!</p>
+        
+        <h2>Três coisas que eu mais amo em você:</h2>
+     <ul>
+        
+        <div class="caixa-motivos">
+            <div class="motivo-item">
+                <h3>O seu sorriso</h3>
+                <p>Ele ilumina o meu dia inteiro. Toda vez que você sorri, sinto que tudo fica mais leve e feliz ao meu redor, me dando motivos para sorrir também.</p>
+            </div>
+            
+            <div class="motivo-item">
+                <h3>O seu abraço</h3>
+                <p>É o meu porto seguro e o melhor lugar do mundo. Dentro do seu abraço, eu encontro paz, conforto e sinto que nada pode dar errado.</p>
+            </div>
+            
+            <div class="motivo-item">
+                <h3>A sua companhia</h3>
+                <p>Você transforma qualquer momento simples em algo inesquecível. Estar ao seu lado é, sem dúvida, a melhor parte de todos os meus dias.</p>
+            </div>
+         </div>
+     </ul>
+
+        <br>
+        
+        <div class="fotos-bloco">
+            <a href="foto1.html" target="_blank" class="foto-container">
+                <img src="https://i.postimg.cc/rsV4t6Nd/561b54e7-cb02-40dd-83af-24c6fac29668.webp" alt="Foto 1" class="foto-zoom">
+            </a>
+            <a href="foto2.html" target="_blank" class="foto-container">
+                <img src="https://i.postimg.cc/28mYhkWv/Gemini-Generated-Image-6cyeww6cyeww6cye-(2).webp" alt="Foto 2" class="foto-zoom">
+            </a>
+            <a href="foto3.html" target="_blank" class="foto-container">
+                <img src="https://i.postimg.cc/ZYWB2Ls8/Gemini-Generated-Image-qi7527qi7527qi75.webp" alt="Foto 3" class="foto-zoom">
+            </a>
+        </div>
+        
+        <br><br> 
+        <a href="https://www.youtube.com/watch?v=kPhpHvnnn0Q&list=PLYf221WE6iPL8e8c8R7kqU-gU0K4plp8X&index=6" target="_blank" class="botao-musica">❤️ Sua música</a>
+    </div>
+
+    <div id="contato-section" class="secao">
+        <h1 class="titulo-homenagem">O Presente Perfeito ✨</h1>
+        <p class="subtitulo">
+            Quer ir além? Encomende uma carta exclusiva, totalmente personalizada com fotos de vocês e uma trilha sonora especial.
+        </p>
+
+        <div class="area-clicavel-carta" onclick="abrirCarta()">
+            <div class="envelope-wrapper">
+                <div class="envelope" id="meu-envelope">
+                    <div class="flap"></div>
+                    <div class="letter">
+                        <div class="letter-text-top">Meu amor,</div>
+                        <div class="letter-text-body">Assim que ficará sua carta para seu amor... ❤️</div>
+                    </div>
+                    <div class="front"></div>
+                </div>
+            </div>
+            <p class="aviso-clique">(Clique na cartinha para abrir!)</p>
+        </div>
+    </div>
+
+    <div id="overlay-qr" class="overlay">
+        <div class="modal-content" id="modal-box">
+            <h2>Escaneie para descobrir!</h2>
+            <p class="modal-texto">Aponte a câmera do seu celular para o QR Code abaixo:</p>
+            
+            <div class="qr-container">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=MUITO%20OBRIGADO%20POR%20VER%20O%20SITE%20QUE%20EU%20FIZ.%0A%0AFeito%20por%20KAUAN" alt="QR Code" class="qr-code">
+                
+                <div class="burst-heart h1"></div>
+                <div class="burst-heart h2"></div>
+                <div class="burst-heart h3"></div>
+                <div class="burst-heart h4"></div>
+                <div class="burst-heart h5"></div>
+                <div class="burst-heart h6"></div>
+                <div class="burst-heart h7"></div>
+                <div class="burst-heart h8"></div>
+            </div>
+
+            <button class="btn-obrigado" onclick="fecharModal()">Obrigado</button>
+        </div>
+    </div>
+
+    <div class="hearts-area">
+        <div class="heart c1"></div>
+        <div class="heart c2"></div>
+        <div class="heart c3"></div>
+        <div class="heart c4"></div>
+        <div class="heart c5"></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

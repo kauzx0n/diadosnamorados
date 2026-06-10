@@ -1,0 +1,527 @@
+/*FONTES EXTERNAS E CONFIGURAÇÕES GERAIS*/
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital@1&family=Roboto:wght@300;400;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+    text-align: center;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #5c5c5c;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/*MENU DE NAVEGAÇÃO*/
+.menu {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    display: flex;
+    gap: 30px;
+    z-index: 100;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.menu a:hover {
+    color: #ff4d6d;
+    transform: translateY(-2px);
+}
+
+/*CONTROLE DAS SEÇÕES*/
+.secao {
+    display: none;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.ativa-block {
+    display: block !important;
+}
+
+.ativa-flex {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/*ESTILOS DOS TEXTOS E ELEMENTOS*/
+.texto-gigante {
+    font-family: 'Pacifico', cursive;
+    color: #ff4d6d;
+    font-size: 6em;
+    text-shadow: 2px 4px 10px rgba(255, 77, 109, 0.2);
+    padding: 0 20px;
+}
+
+.titulo-homenagem {
+    font-family: 'Pacifico', cursive;
+    color: #ff4d6d;
+    font-size: 3em;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    margin-top: 30px;
+    color: #ff758c;
+    font-weight: 300;
+}
+
+p {
+    font-weight: 300;
+    max-width: 600px;
+    margin: 10px auto;
+    line-height: 1.6;
+}
+
+.subtitulo {
+    font-size: 1.2em;
+    max-width: 700px;
+}
+
+/*CAIXA DE MOTIVOS*/
+.caixa-motivos {
+    background-color: rgba(255, 255, 255, 0.7); /* Fundo clarinho parecido com a sua imagem */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 20px auto 40px;
+    text-align: left;
+}
+
+.motivo-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed rgba(255, 77, 109, 0.3); /* Linha divisória charmosa entre os textos */
+}
+
+/*Tira a linha do último item*/
+.motivo-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.motivo-item h3 {
+    color: #ff4d6d;
+    font-size: 1.3em;
+    margin-bottom: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+.motivo-item p {
+    color: #5c5c5c;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 0; 
+    max-width: 100%;
+}
+
+/*BLOCO DE FOTOS COM ZOOM*/
+.fotos-bloco {
+    margin-top: 20px;
+}
+
+.foto-container {
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px 15px;
+    perspective: 1000px;
+}
+
+.foto-zoom {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: rotate(-2deg);
+    object-fit: cover;
+    max-width: 300px;
+    height: auto;
+}
+
+.foto-container:hover .foto-zoom {
+    transform: scale(1.1) rotate(0deg) translateY(-5px); 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/*BOTÃO MUSICA E ANIMACAO*/
+.botao-musica {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #ff4d6d, #ff758c);
+    color: white !important;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 6px 15px rgba(255, 77, 109, 0.3);
+    margin-top: 30px;
+    
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    cursor: pointer;
+}
+
+.botao-musica:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(255, 77, 109, 0.5);
+    background: linear-gradient(135deg, #f53d5f, #ff5c77);
+}
+
+.botao-musica:active {
+    transform: translateY(2px) scale(0.95);
+    box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
+    transition: all 0.1s;
+}
+
+/*ESTRUTURA DO ENVELOPE E CARTA*/
+.area-clicavel-carta {
+    display: inline-block;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+.area-clicavel-carta:hover {
+    background-color: rgba(255, 77, 109, 0.05);
+}
+
+.aviso-clique {
+    color: #ff4d6d;
+    font-weight: bold;
+    margin-top: 10px;
+    pointer-events: none;
+}
+
+.envelope-wrapper {
+    position: relative;
+    width: 320px;
+    height: 220px;
+    margin: 40px auto 20px;
+    pointer-events: none;
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #ff758c;
+    border-radius: 5px 5px 10px 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease;
+}
+
+.area-clicavel-carta:hover .envelope {
+    transform: translateY(-5px);
+}
+
+/*Aba superior da carta*/
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 110px solid #ff4d6d;
+    transform-origin: top;
+    transition: transform 0.5s ease 0.2s, z-index 0s 0.3s;
+    z-index: 4;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+/*Frente do envelope*/
+.front {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 160px solid #ff8fa3;
+    border-right: 160px solid #ff8fa3;
+    border-bottom: 110px solid #ff758c;
+    z-index: 3;
+    border-radius: 0 0 10px 10px;
+}
+
+/*Papel interno da carta*/
+.letter {
+    position: absolute;
+    bottom: 10px;
+    left: 5%;
+    width: 90%;
+    height: 190px;
+    background: white;
+    z-index: 2;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.6s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.envelope.open .letter {
+    transform: translateY(-120px);
+    z-index: 5;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.15);
+}
+
+.letter-text-top {
+    font-family: 'Pacifico', cursive;
+    color: #ff4d6d;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.letter-text-body {
+    font-size: 1.1em;
+    color: #5c5c5c;
+    font-weight: 400;
+}
+
+/*JANELA FLUTUANTE (MODAL) COM DESFOQUE*/
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transform: scale(0.8);
+    transition: transform 0.5s ease;
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal-texto {
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+.qr-container {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.qr-code {
+    position: relative;
+    z-index: 10;
+    border: 8px solid white;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    width: 200px;
+    height: 200px;
+    background-color: white;
+}
+
+.btn-obrigado {
+    display: block;
+    margin: 20px auto 0;
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-obrigado:hover {
+    background-color: #e63950;
+    transform: translateY(-2px);
+}
+
+/*ANIMAÇÃO DOS CORAÇÕES SAINDO DO QR CODE*/
+.burst-heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #ff4d6d;
+    border-radius: 50% 50% 0 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+    z-index: 1;
+    opacity: 0;
+}
+
+.burst-heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff4d6d;
+    border-radius: 50%;
+    top: 0;
+    left: -10px;
+}
+
+/*Direções e tempos de cada coração da explosão*/
+.h1 { --tx: -120px; --ty: -120px; animation: shootOut 1.5s infinite 0.1s; }
+.h2 { --tx: 120px;  --ty: -120px; animation: shootOut 1.5s infinite 0.3s; }
+.h3 { --tx: -120px; --ty: 120px;  animation: shootOut 1.5s infinite 0.5s; }
+.h4 { --tx: 120px;  --ty: 120px;  animation: shootOut 1.5s infinite 0.7s; }
+.h5 { --tx: 0px;    --ty: -150px; animation: shootOut 1.5s infinite 0.9s; }
+.h6 { --tx: 0px;    --ty: 150px;  animation: shootOut 1.5s infinite 0.2s; }
+.h7 { --tx: -150px; --ty: 0px;    animation: shootOut 1.5s infinite 0.4s; }
+.h8 { --tx: 150px;  --ty: 0px;    animation: shootOut 1.5s infinite 0.6s; }
+
+@keyframes shootOut {
+    0% { transform: translate(-50%, -50%) rotate(45deg) scale(0.5); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) rotate(45deg) scale(1.5); opacity: 0; }
+}
+
+/*CORAÇÕES FLUTUANTES DA PÁGINA*/
+.hearts-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff758c;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff758c;
+    border-radius: 50%;
+    top: 0;
+    left: -10px;
+}
+
+.c1 { left: 10%; animation: floatHearts 12s linear infinite; }
+.c2 { left: 25%; animation: floatHearts 18s linear infinite; }
+.c3 { left: 40%; animation: floatHearts 15s linear infinite; }
+.c4 { left: 55%; animation: floatHearts 22s linear infinite; }
+.c5 { left: 70%; animation: floatHearts 14s linear infinite; }
+
+@keyframes floatHearts {
+    0% { opacity: 0; transform: translateY(100vh) scale(1); }
+    30% { opacity: 0.8; }
+    100% { opacity: 0; transform: translateY(-100px) scale(0.5); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   ESTILOS DO QUIZ
+   ========================================== */
+.quiz-box {
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.opcoes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-opcao {
+    background-color: white;
+    border: 2px solid #ff758c;
+    color: #ff4d6d;
+    padding: 15px;
+    font-size: 1.1em;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-opcao:hover {
+    background-color: #ff758c;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.2);
+}
+
+/* Barra de Progresso */
+.barra-fundo {
+    width: 100%;
+    height: 30px;
+    background-color: #ffe6e6;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.barra-progresso {
+    height: 100%;
+    width: 0%; /* Começa zerada */
+    background: linear-gradient(135deg, #ff4d6d, #ff758c);
+    border-radius: 20px;
+    transition: width 0.1s linear;
+}
+
